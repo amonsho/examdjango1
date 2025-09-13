@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/details_v.css' %}">
+</head>
+<body>
+    <h1>Детали видео</h1>
+
+    <h3>Название: {{video.video_title}}</h3>
+    <h3>Описание: {{video.video_description}}</h3>
+    <video src="{{ video.video_file.url }}" controls></video>
+
+    <p>Автор: {{ video.user.name }} {{ video.user.surname }}</p>
+
+    <a href="{% url 'get_v' %}"><button>Назад</button></a>
+
+</body>
+</html>

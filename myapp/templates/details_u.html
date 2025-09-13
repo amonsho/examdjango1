@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/details_u_style.css' %}">
+</head>
+<body>
+    <h1>Детали автора</h1>
+
+    <h3>Имя: {{user.name}}</h3>
+    <h3>Фамилия: {{user.surname}}</h3>
+    <h3>Email: {{user.email}}</h3>
+    <img src="{{user.photo.url}}" alt="">
+
+    <br> <br>
+    <a href="{% url 'get_u' %}"><button>Назад</button></a>
+    <a href="{% url 'user_videos' user.id %}"><button>Посмотреть видео</button></a>
+
+</body>
+</html>

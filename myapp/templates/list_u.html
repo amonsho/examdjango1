@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/list_u_style.css' %}">
+</head>
+<body>
+
+     <nav>
+      <a href="{% url 'base' %}">Главная</a> |
+      <a href="{% url 'get_u' %}">Пользователи</a> |
+      <a href="{% url 'get_v' %}">Видео</a>
+    </nav>
+    <hr>
+
+    <form action="" method="get">
+        <input type="text" name="name" placeholder="Поиск по имени">
+        <button type="submit">Найти</button>
+    </form>
+        <br> <br>
+    <a href="{% url 'add_u' %}"><button>Добавить Автора</button></a>
+
+    {% for user in users %}
+    <h2>Автор id: {{user.id}}</h2>
+    <h2> Имя:{{user.name}}</h2>
+    <h2> Фамилия:{{user.surname}}</h2>
+    <h2> Email:{{user.email}}</h2>
+
+    {% if user.photo %}
+        <img src="{{ user.photo.url }}" alt="photo" width="200">
+    {% endif %} 
+
+    <br><br>
+
+    <a href="{% url 'update_u' user.id %}"><button>Update</button></a>
+    <a href="{% url 'delete_u' user.id %}"><button>Delete</button></a>
+    <a href="{% url 'details_u' user.id %}"><button>Details</button></a>
+
+    {% endfor %}
+    
+</body>
+</html>

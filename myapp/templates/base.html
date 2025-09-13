@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/base_style.css' %}">
+</head>
+<body>
+    <header>
+    <nav>
+      <a href="{% url 'base' %}">Главная</a> |
+      <a href="{% url 'get_u' %}">Пользователи</a> |
+      <a href="{% url 'get_v' %}">Видео</a>
+    </nav>
+    <hr>
+
+    <p>Добро пожаловать! Здесь вы можете управлять пользователями и загружать видео.</p>
+
+    <ul>
+        <li>Перейдите в раздел Пользователи, чтобы просматривать, редактировать или удалять записи.</li>
+        <li>Зайдите в раздел Видео, чтобы посмотреть загруженные видеоролики.</li>
+        <li>Можно добавлять и редактировать видео, привязывая их к пользователям.</li>
+    </ul>
+  </header>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/list_v_style.css'%}">
+</head>
+<body>
+    
+     <nav>
+      <a href="{% url 'base' %}">Главная</a> |
+      <a href="{% url 'get_u' %}">Пользователи</a> |
+      <a href="{% url 'get_v' %}">Видео</a>
+    </nav>
+    <hr>
+
+    <form action="" method="get">
+        <input type="text" name="title" placeholder="Поиск по названию">
+        <button type="submit">Найти</button> 
+    </form>
+        <br> <br>
+        <a href="{% url 'add_v' %}"><button>Добавить видео</button></a>
+    {% for video in videos %}
+    <h2>Видео id:{{video.id}}</h2>
+    <h2>Название: {{video.video_title}}</h2>
+    <h2>Описание: {{video.video_description}}</h2>
+
+    {% if video.video_file %}
+    <video width="300" src="{{ video.video_file.url }}" controls></video>
+    {% endif %}
+    <br> <br>
+
+    <a href="{% url 'update_v' video.id %}"><button>Update</button></a>
+    <a href="{% url 'delete_v' video.id %}"><button>Delete</button></a>
+    <a href="{% url 'details_v' video.id %}"><button>Details</button></a>
+    <hr> 
+    {% endfor %}
+
+</body>
+</html>
