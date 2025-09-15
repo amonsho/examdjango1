@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home,get_user,add_user,update_user,delete_user,details_user,get_video,add_video,update_video,delete_video,details_video,user_videos,base,video_exclude_user
+from .views import *
 
 urlpatterns = [
     path('home/',home,name='home'),
@@ -15,6 +15,9 @@ urlpatterns = [
     path('details_v/<int:id>',details_video,name='details_v'),
     path('user/<int:user_id>/',user_videos, name='user_videos'),
     path('base/',base,name='base'),
-    path('video/exclude/<int:user_id>',video_exclude_user,name='video_exclude_users')
+    path('video/exclude/<int:user_id>',video_exclude_user,name='video_exclude_users'),
+    path('register/',register,name='register'),
+    path('login/',login,name='login'),
+    path('logout/',logout,name='logout')
 
 ]

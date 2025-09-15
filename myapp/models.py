@@ -5,7 +5,7 @@ class User(models.Model):
     surname = models.CharField(max_length=50)
     email = models.EmailField(max_length=250,unique=True)
     photo = models.ImageField(upload_to='images')
-
+        
     def __str__(self):
         return f'{self.name} {self.surname}'
     
@@ -17,3 +17,11 @@ class Video(models.Model):
 
     def __str__(self):
         return self.video_title
+    
+
+class UserPassword(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    password = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.user.email

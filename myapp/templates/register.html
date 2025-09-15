@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/register_style.css' %}">
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <h1>REGISTER</h1>
+
+        {% if context %}
+        <p class="message">{{ context }}</p>
+        {% endif %} <br>
+        <input type="text" name="name" placeholder="Enter name"> <br>
+        <input type="text" name="surname" placeholder="Enter surname"> <br>
+        <input type="email" name="email" placeholder=" enter email"> <br>
+        <input type="password" name="password" placeholder=" enter password"> <br>
+        <input type="password" name="confirm" placeholder="enter password one more"> <br>
+
+        <button type="submit">Register</button>
+
+
+    </form>
+</body>
+</html>
